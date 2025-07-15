@@ -26,6 +26,7 @@ def llama():
 def llama_reply():
     q = request.form.get("q")
     client = Groq()
+
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=[
@@ -33,6 +34,17 @@ def llama_reply():
               "role":"user",
               "content": q
 
+            }
+        ]
+    )
+    return(render_template("llama_reply.html",r=completion.choices[0].message.content))
+
+    completion_ds = client.chat.completions.create(
+        model="deepseek-r1-distill-llama-70b",
+        messages=[
+            {
+                "role": "user",
+                "content": q
             }
         ]
     )
