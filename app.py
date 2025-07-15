@@ -3,7 +3,9 @@ import joblib
 from groq import Groq
 
 import os
-os.environ['GROQ_API_KEY']
+from dotenv import load_dotenv
+
+load_dotenv()
 #for cloud......
 
 app = Flask(__name__)
@@ -27,28 +29,19 @@ def llama_reply():
     q = request.form.get("q")
     client = Groq()
 
-    completion = client.chat.completions.create(
+    llama_completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
-        messages=[
-            {
-              "role":"user",
-              "content": q
-
-            }
-        ]
+        messages=[{"role":"user", "content": q}]
     )
-    return(render_template("llama_reply.html",r=completion.choices[0].message.content))
-
-    completion_ds = client.chat.completions.create(
+    
+    deepseek_completion = client.chat.completions.create(
         model="deepseek-r1-distill-llama-70b",
-        messages=[
-            {
-                "role": "user",
-                "content": q
-            }
-        ]
+        messages=[{"role": "user", "content": q}]
     )
-    return(render_template("llama_reply.html",r=completion.choices[0].message.content))
+    
+    return render_template("llama_reply.html", 
+                         llama_response=llama_completion.choices[0].message.content,
+                         deepseek_response=deepseek_completion.choices[0].message.content)
 
 @app.route("/dbs",methods=["GET","POST"])
 def dbs():

@@ -5,7 +5,12 @@
 </head>
 <body>
     <div class="container">
-        <h2>LLAMA Reply : {{r}}</h2>
+        <h2>LLAMA Reply:</h2>
+        <p>{{llama_response}}</p>
+        
+        <h2>DeepSeek Reply:</h2>
+        <p>{{deepseek_response}}</p>
+        
         <form action="/main" method="post">
             <input type="submit" value="Main">
         </form>
