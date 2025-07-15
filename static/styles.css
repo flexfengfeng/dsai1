@@ -78,13 +78,19 @@ p {
     color: #007bff;
 }
 
+.answers-row {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
 .answer-box {
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-radius: 8px;
     padding: 20px;
-    margin: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
 }
 
 .response-content {
@@ -102,6 +108,10 @@ p {
 @media (max-width: 768px) {
     .container {
         padding: 20px;
+    }
+
+    .answers-row {
+        flex-direction: column;
     }
 
     h2 {
