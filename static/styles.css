@@ -15,7 +15,7 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
     text-align: center;
 }
@@ -76,6 +76,27 @@ p {
     margin-top: 20px;
     font-size: 18px;
     color: #007bff;
+}
+
+.answer-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.response-content {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 @media (max-width: 768px) {

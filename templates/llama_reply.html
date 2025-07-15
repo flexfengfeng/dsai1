@@ -5,11 +5,15 @@
 </head>
 <body>
     <div class="container">
-        <h2>LLAMA Reply:</h2>
-        <p>{{llama_response}}</p>
+        <div class="answer-box">
+            <h2>LLAMA Reply:</h2>
+            <div class="response-content">{{llama_response}}</div>
+        </div>
         
-        <h2>DeepSeek Reply:</h2>
-        <p>{{deepseek_response}}</p>
+        <div class="answer-box">
+            <h2>DeepSeek Reply:</h2>
+            <div class="response-content">{{deepseek_response}}</div>
+        </div>
         
         <form action="/main" method="post">
             <input type="submit" value="Main">
